@@ -62,7 +62,7 @@ INCParser=.\Bin\Build\ginp.exe
 
 [Chip]
 ChipIndexFile=.\Chip\SN8\ChipIndex_2700A.ini
-ChipName=SN8P2711B
+ChipName=SN8P2708A
 
 [Makefile]
 Active=0

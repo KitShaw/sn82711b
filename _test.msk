@@ -1,19 +1,19 @@
 [Mask_Option]
 Count=7
-FixHigh=13,14,15,17,19,20,22,25,27,28-31,32-40,45-63
-FixLow=16,18,21,23,24,26,43,44
+FixHigh=7,9,10-11,12,13-14,15,17,19,20,22,25,27,28-31,32-63
+FixLow=16,18,21,23,24,26
 OTP2MSK=
 
 [Option_0]
-NAME=Noise_Filter
+NAME=Watch_Dog0
 TYPE=1
 HELP=
-SHOW=1
+SHOW=0
 START=0
 WIDTH=1
 DEFAULT=0
-Flag0=Disable
-Flag1=Enable
+Flag0=Enable
+Flag1=Disable
 
 [Option_1]
 NAME=Security
@@ -38,7 +38,10 @@ Flag0=Fosc/1
 Flag1=Fosc/2
 Flag2=Fosc/4
 Flag3=Fosc/8
-Flag7=Fosc/16
+Flag4=Fosc/16
+Flag5=Fosc/32
+Flag6=Fosc/64
+Flag7=Fosc/128
 
 [Option_3]
 NAME=High_Clk
@@ -46,75 +49,70 @@ TYPE=1
 HELP=
 SHOW=1
 START=5
-WIDTH=3
+WIDTH=2
 DEFAULT=0
-Flag0=IHRC_16M
-Flag0_Help=Internal 16M RC Oscillator
-Flag4=Ext_RC
-Flag4_Help=Connect R to VDD and Xin\nConnect C to GND and Xin
-Flag5=32K_X'tal
-Flag5_Help=32.768K Crystal
-Flag6=12M_X'tal
-Flag6_Help=Crystal/Resonator: 10Mhz~16Mhz
-Flag7=4M_X'tal
-Flag7_Help=Crystal/Resonator: 2Mhz~10Mhz
+Flag0=RC
+Flag0_Help=Connect R to VDD and Xin\nConnect C to GND and Xin
+Flag2=12M_X'tal
+Flag2_Help=Crystal/Resonator: 10Mhz~16Mhz
+Flag3=4M_X'tal
+Flag3_Help=Crystal/Resonator: 2Mhz~10Mhz
 
 [Option_4]
-NAME=Watch_Dog
+NAME=Int_16K_RC
 TYPE=1
 HELP=
-SHOW=1
+SHOW=0
 START=8
-WIDTH=4
-DEFAULT=0
-Flag0=Always_On
-Flag0_Help=Watchdog still enable even in\nGreen and Sleep mode
-Flag5=Enable
-Flag5_Help=Normal mode: Enable Watchdog\nGreen and Sleep mode: Stop Watchdog
-Flag10=Disable
-Flag10_Help=Disable Watchdog
-
-[Option_5]
-NAME=Reset_Pin
-TYPE=1
-HELP=
-SHOW=1
-START=12
 WIDTH=1
 DEFAULT=0
-Flag0=P04
-Flag1=Reset
+Flag0=Always_ON
+Flag1=By_CPUM
 
-[Option_6]
-NAME=LVD
-TYPE=1
+[Option_5]
+NAME=Watch_Dog
+TYPE=0
 HELP=
 SHOW=1
-START=41
+START= 
 WIDTH=2
-DEFAULT=1
-Flag1=LVD_H
-Flag1_Help=2.4V Reset\nEnable LVD36 bit of PFLAG for\n3.6V Low Voltage Indicator
-Flag2=LVD_M
-Flag2_Help=2.0V Reset\nEnable LVD24 bit of PFLAG for\n2.4V Low Voltage Indicator
-Flag3=LVD_L
-Flag3_Help=2.0V Reset
+DEFAULT=0
+Flag0=Always_ON
+Flag0_Help=Watchdog still enable even in\nGreen and Sleep mode
+Flag1=Enable
+Flag1_Help=Normal mode: Enable Watchdog\nGreen mode : Enable Watchdog\nSleep mode : Stop Watchdog
+Flag2=Disable
+Flag2_Help=Disable Watchdog
+
+[Option_6]
+NAME=Noise_Filter
+TYPE=0
+HELP=
+SHOW=1
+START= 
+WIDTH=2
+DEFAULT=0
+Flag0=Enable
+Flag1=Disable
 
 [CONDITION]
-Count = 2
-COMMAND0 = IF Option_0==1  DO COMMAND_0
-COMMAND1 = IF Option_0==x  DO COMMAND_1
+Count = 5
+COMMAND0 = IF Option_6==0  DO COMMAND_0
+COMMAND1 = IF Option_6==1  DO COMMAND_1
+COMMAND2 = IF Option_5==0  DO COMMAND_2
+COMMAND3 = IF Option_5==1  DO COMMAND_3
+COMMAND4 = IF Option_5==x  DO COMMAND_4
 
 [COMMAND_0]
 Count = 8
-COMMAND0 = SET Option_2, Flag0 = x
-COMMAND1 = SET Option_2, Flag1 = x
+COMMAND0 = SET Option_2, Flag0 = X
+COMMAND1 = SET Option_2, Flag1 = X
 COMMAND2 = SET Option_2, Flag2 = Fosc/4
 COMMAND3 = SET Option_2, Flag3 = Fosc/8
-COMMAND4 = SET Option_2, Flag4 = x
-COMMAND5 = SET Option_2, Flag5 = x
-COMMAND6 = SET Option_2, Flag6 = x
-COMMAND7 = SET Option_2, Flag7 = Fosc/16
+COMMAND4 = SET Option_2, Flag4 = Fosc/16
+COMMAND5 = SET Option_2, Flag5 = Fosc/32
+COMMAND6 = SET Option_2, Flag6 = Fosc/64
+COMMAND7 = SET Option_2, Flag7 = Fosc/128
 
 [COMMAND_1]
 Count = 8
@@ -122,7 +120,22 @@ COMMAND0 = SET Option_2, Flag0 = Fosc/1
 COMMAND1 = SET Option_2, Flag1 = Fosc/2
 COMMAND2 = SET Option_2, Flag2 = Fosc/4
 COMMAND3 = SET Option_2, Flag3 = Fosc/8
-COMMAND4 = SET Option_2, Flag4 = x
-COMMAND5 = SET Option_2, Flag5 = x
-COMMAND6 = SET Option_2, Flag6 = x
-COMMAND7 = SET Option_2, Flag7 = Fosc/16
+COMMAND4 = SET Option_2, Flag4 = Fosc/16
+COMMAND5 = SET Option_2, Flag5 = Fosc/32
+COMMAND6 = SET Option_2, Flag6 = Fosc/64
+COMMAND7 = SET Option_2, Flag7 = Fosc/128
+
+[COMMAND_2]
+Count = 2
+COMMAND0 = SET Option_4, DEFAULT = 0
+COMMAND1 = SET Option_0, DEFAULT = 0
+
+[COMMAND_3]
+Count = 2
+COMMAND0 = SET Option_4, DEFAULT = 1
+COMMAND1 = SET Option_0, DEFAULT = 0
+
+[COMMAND_4]
+Count = 2
+COMMAND0 = SET Option_4, DEFAULT = 1
+COMMAND1 = SET Option_0, DEFAULT = 1

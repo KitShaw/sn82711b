@@ -4,7 +4,7 @@
 ;  Sonix SN8 C Compiler - V2.01
 ;----------------------------------------------------
 
-CHIP SN8P2711B
+CHIP SN8P2708A
 
 INCLUDE <sncc_macros.h>
 EXTERN DATA T

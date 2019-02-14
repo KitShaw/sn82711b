@@ -4,13 +4,10 @@ start listing elf file - .\Bin/test.out
 ------------------begin data section------------------
 
 Start   Length(Byte)  Type  Name                             Source File
-000000    0X05        Data  crt0@data                        
+000000    0X02        Data  crt0@data                        
 
 
 crt0@data SEGMENT DATA INBANK
-	H	DS	1
-	L	DS	1
-	X	DS	1
 	I	DS	1
 	T	DS	1
 
@@ -27,17 +24,25 @@ crt0@data SEGMENT DATA INBANK
     7: 0000       	NOP
 .CODE:
                   	                  	
-                  	                  	void main(void)
-                  	                  	{
-                  	                  		while(1);
-    8: 8008       	JMP 0x0008
-.CODE:
+                  	                  	#include <key.h>
                   	                  	
                   	                  	void main(void)
                   	                  	{
+                  	                  		key_init();
+    8: C021       	CALL 0x0021
+.CODE:
+                  	                  	
+                  	                  	#include <key.h>
+                  	                  	
+                  	                  	void main(void)
+                  	                  	{
+                  	                  		key_init();
+    8: C021       	CALL 0x0021
+L2:
                   	                  		while(1);
-    8: 8008       	JMP 0x0008
+    9: 8009       	JMP 0x0009
 _SGV_INIT_CODE_BEGIN:
+                  	                  	}
     A: 2D7F       	MOV A, #7fh
     B: 2FDF       	B0MOV STKP, A
     C: C010       	CALL 0x0010
@@ -52,11 +57,29 @@ __ClearWatchDogTimer:
    11: 2FCC       	B0MOV WDTR, A
    12: 0E00       	RET
 __ClrRAM:
-   13: 2B84       	CLR 0x84
-   14: 333F       	B0MOV 0x83, #3Fh
+   13: 3700       	B0MOV 0x87, #00h
+   14: 2B84       	CLR 0x84
+   15: 337F       	B0MOV 0x83, #7Fh
 ClrRAM10:
-   15: 2BE7       	CLR 0xE7
-   16: 2683       	DECMS 0x83
-   17: 8015       	JMP 0x0015
-   18: 2BE7       	CLR 0xE7
-   19: 0E00       	RET
+   16: 2BE7       	CLR 0xE7
+   17: 2683       	DECMS 0x83
+   18: 8016       	JMP 0x0016
+   19: 2BE7       	CLR 0xE7
+   1A: 3401       	B0MOV 0x84, #01h
+   1B: 337F       	B0MOV 0x83, #7Fh
+ClrRAM20:
+   1C: 2BE7       	CLR 0xE7
+   1D: 2683       	DECMS 0x83
+   1E: 801C       	JMP 0x001C
+   1F: 2BE7       	CLR 0xE7
+   20: 0E00       	RET
+_Function_key_init_code:
+                  	                  	
+                  	                  	
+                  	                  	#include <sn8p2708a.h>
+                  	                  	
+                  	                  	void key_init(void)
+                  	                  	{
+                  	                  		
+                  	                  	}
+   21: 0E00       	RET

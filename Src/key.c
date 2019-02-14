@@ -1,6 +1,6 @@
 
 
-#include <sn8p2511.h>
+#include <sn8p2708a.h>
 
 void key_init(void)
 {
