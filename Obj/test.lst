@@ -1,0 +1,62 @@
+start listing elf file - .\Bin/test.out
+
+
+------------------begin data section------------------
+
+Start   Length(Byte)  Type  Name                             Source File
+000000    0X05        Data  crt0@data                        
+
+
+crt0@data SEGMENT DATA INBANK
+	H	DS	1
+	L	DS	1
+	X	DS	1
+	I	DS	1
+	T	DS	1
+
+
+------------------begin disassembly code------------------
+
+    0: 800A       	JMP 0x000A
+    1: 0000       	NOP
+    2: 0000       	NOP
+    3: 0000       	NOP
+    4: 0000       	NOP
+    5: 0000       	NOP
+    6: 0000       	NOP
+    7: 0000       	NOP
+.CODE:
+                  	                  	
+                  	                  	void main(void)
+                  	                  	{
+                  	                  		while(1);
+    8: 8008       	JMP 0x0008
+.CODE:
+                  	                  	
+                  	                  	void main(void)
+                  	                  	{
+                  	                  		while(1);
+    8: 8008       	JMP 0x0008
+_SGV_INIT_CODE_BEGIN:
+    A: 2D7F       	MOV A, #7fh
+    B: 2FDF       	B0MOV STKP, A
+    C: C010       	CALL 0x0010
+    D: C013       	CALL 0x0013
+_SGV_INIT_CODE:
+    E: C010       	CALL 0x0010
+_SGV_INIT_CODE:
+    E: C010       	CALL 0x0010
+    F: 8008       	JMP 0x0008
+__ClearWatchDogTimer:
+   10: 2D5A       	MOV A, #5ah
+   11: 2FCC       	B0MOV WDTR, A
+   12: 0E00       	RET
+__ClrRAM:
+   13: 2B84       	CLR 0x84
+   14: 333F       	B0MOV 0x83, #3Fh
+ClrRAM10:
+   15: 2BE7       	CLR 0xE7
+   16: 2683       	DECMS 0x83
+   17: 8015       	JMP 0x0015
+   18: 2BE7       	CLR 0xE7
+   19: 0E00       	RET

@@ -1,0 +1,92 @@
+Executable File = E:\sn8\sn8_test\test\Bin\test.out
+
+Timestamp is Mon Feb 11 11:37:34 2019
+
+
+Start		Length(Word)		Type		Name		Module
+0X000000	0X0008		Code		crt0@code		D:\Sonix\SN8_C_~1.255\C\LIB\crt0_SN8P2711B.o
+0X000008	0X0000		Code		.CODE		E:\sn8\sn8_test\test\Obj\main.o
+0X000008	0X0001		Code		_Function_main_code		E:\sn8\sn8_test\test\Obj\main.o
+0X00000A	0X0004		Code		_SGV_INIT_CODE_BEGIN		D:\Sonix\SN8_C_~1.255\C\LIB\crt0_SN8P2711B.o
+0X00000E	0X0000		Code		_SGV_INIT_CODE		D:\Sonix\SN8_C_~1.255\C\LIB\crt0_SN8P2711B.o
+0X00000E	0X000C		Code		_SGV_INIT_CODE_END		D:\Sonix\SN8_C_~1.255\C\LIB\crt0_SN8P2711B.o
+
+Start		Length(Byte)		Type		Name		Module
+0X000000	0X0005		Data		crt0@data		D:\Sonix\SN8_C_~1.255\C\LIB\crt0_SN8P2711B.o
+0X000005	0X0000		Data		_Function_main_data		E:\sn8\sn8_test\test\Obj\main.o
+
+Address		Type		Size(Byte)		Public/Local		Segment			Module
+0X000000	Section		0X010		L:crt0@code		crt0@code			D:\Sonix\SN8_C_~1.255\C\LIB\crt0_SN8P2711B.o
+0X000008	Section		0X000		L:.CODE		.CODE			E:\sn8\sn8_test\test\Obj\main.o
+0X000008	No type		0X000		L:Ltext0		.CODE			E:\sn8\sn8_test\test\Obj\main.o
+0X000008	Section		0X002		L:_Function_main_code		_Function_main_code			E:\sn8\sn8_test\test\Obj\main.o
+0X000008	No type		0X000		P:_main		_Function_main_code			E:\sn8\sn8_test\test\Obj\main.o
+0X000008	No type		0X000		L:L5		_Function_main_code			E:\sn8\sn8_test\test\Obj\main.o
+0X000008	No type		0X000		L:L6		_Function_main_code			E:\sn8\sn8_test\test\Obj\main.o
+0X000008	No type		0X000		L:L2		_Function_main_code			E:\sn8\sn8_test\test\Obj\main.o
+0X000008	No type		0X000		L:L7		_Function_main_code			E:\sn8\sn8_test\test\Obj\main.o
+0X000008	No type		0X000		L:L3		_Function_main_code			E:\sn8\sn8_test\test\Obj\main.o
+0X000008	No type		0X000		L:L8		_Function_main_code			E:\sn8\sn8_test\test\Obj\main.o
+0X000009	No type		0X000		L:L9		_Function_main_code			E:\sn8\sn8_test\test\Obj\main.o
+0X000009	No type		0X000		L:L10		_Function_main_code			E:\sn8\sn8_test\test\Obj\main.o
+0X000009	No type		0X000		L:L1		_Function_main_code			E:\sn8\sn8_test\test\Obj\main.o
+0X000009	No type		0X000		L:_main_end		_Function_main_code			E:\sn8\sn8_test\test\Obj\main.o
+0X000009	No type		0X000		L:Letext		_Function_main_code			E:\sn8\sn8_test\test\Obj\main.o
+0X00000A	Section		0X008		L:_SGV_INIT_CODE_BEGIN		_SGV_INIT_CODE_BEGIN			D:\Sonix\SN8_C_~1.255\C\LIB\crt0_SN8P2711B.o
+0X00000A	No type		0X000		P:_sgv_init_entry		_SGV_INIT_CODE_BEGIN			D:\Sonix\SN8_C_~1.255\C\LIB\crt0_SN8P2711B.o
+0X00000E	Section		0X000		L:_SGV_INIT_CODE		_SGV_INIT_CODE			D:\Sonix\SN8_C_~1.255\C\LIB\crt0_SN8P2711B.o
+0X00000E	Section		0X018		L:_SGV_INIT_CODE_END		_SGV_INIT_CODE_END			D:\Sonix\SN8_C_~1.255\C\LIB\crt0_SN8P2711B.o
+0X000010	No type		0X000		P:__ClearWatchDogTimer		_SGV_INIT_CODE_END			D:\Sonix\SN8_C_~1.255\C\LIB\crt0_SN8P2711B.o
+0X000013	No type		0X000		P:__ClrRAM		_SGV_INIT_CODE_END			D:\Sonix\SN8_C_~1.255\C\LIB\crt0_SN8P2711B.o
+0X000015	No type		0X000		L:ClrRAM10		_SGV_INIT_CODE_END			D:\Sonix\SN8_C_~1.255\C\LIB\crt0_SN8P2711B.o
+
+
+Address		Type		Size(Byte)		Public/Local		Segment			Module
+0X000000	Section		0X005		L:crt0@data		crt0@data			D:\Sonix\SN8_C_~1.255\C\LIB\crt0_SN8P2711B.o
+0X000000	Object		0X001		P:H		crt0@data			D:\Sonix\SN8_C_~1.255\C\LIB\crt0_SN8P2711B.o
+0X000001	Object		0X001		P:L		crt0@data			D:\Sonix\SN8_C_~1.255\C\LIB\crt0_SN8P2711B.o
+0X000002	Object		0X001		P:X		crt0@data			D:\Sonix\SN8_C_~1.255\C\LIB\crt0_SN8P2711B.o
+0X000003	Object		0X001		P:I		crt0@data			D:\Sonix\SN8_C_~1.255\C\LIB\crt0_SN8P2711B.o
+0X000004	Object		0X001		P:T		crt0@data			D:\Sonix\SN8_C_~1.255\C\LIB\crt0_SN8P2711B.o
+0X000005	Section		0X000		L:_Function_main_data		_Function_main_data			E:\sn8\sn8_test\test\Obj\main.o
+
+
+Module Table [Unit:Word]
+
+Code Size	%Code Percent	Data Size	%Code Percent	Module Type	Module(Library)
+--------------------------------------------------------------------------------------------------------
+0x00000030	4.705882		0x00000005	7.812500		crt0 code  	D:\Sonix\SN8_C_~1.255\C\LIB\crt0_SN8P2711B.o
+0x00000002	0.196078		0x00000000	0.000000		user code  	E:\sn8\sn8_test\test\Obj\main.o
+--------------------------------------------------------------------------------------------------------
+
+Total ROM size: 1020[0x3FC]
+Has used: 25[0x19](2.450980) words		[composed by: all code segments size]
+Remains: 995[0x3E3](97.549020) words
+
+Total RAM size: 64[0x40]
+Has used: 5[0x5](7.812500) words		[composed by: all code segments size]
+Remains: 59[0x3B](92.187500) words
+
+Overlay Map:
+
+Call Tree:
+In File: "D:\Sonix\SN8_C_~1.255\C\LIB\crt0_SN8P2711B.o"
+
+In File: "E:\sn8\sn8_test\test\Obj\main.o"
+
+
+Detail CallTree
+
+Stack Level : Function Name
+0:_main
+
+
+Optimize result:
+The "_SELECTBANK" instruction total number:0
+After optimize,erased "_SELECTBANK" instruction number:0
+Optimize percent with "_SELECTBANK" instruction:0%
+
+
+
+Entry point = 0x00000008
+
