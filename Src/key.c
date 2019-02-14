@@ -4,5 +4,8 @@
 
 void key_init(void)
 {
-	
+	__asm
+	{
+		nop
+	}
 }
